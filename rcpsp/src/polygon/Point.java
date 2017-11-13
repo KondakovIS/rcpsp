@@ -5,6 +5,8 @@ public class Point implements Comparable<Point>{
 	double x;
 	double y;
 	double tangence;
+	int key;
+	double alpha = 1;
 	
 	public double getX() {
 		return x;
@@ -13,6 +15,7 @@ public class Point implements Comparable<Point>{
 	public void setX(double newX) {
 		x = newX;
 	}
+	
 
 	public double getY() {
 		return y;
@@ -22,10 +25,29 @@ public class Point implements Comparable<Point>{
 		y = newY;
 	}
 	
+	public int getKey() {
+		return key;
+	}
+	
+	public void setKey(int k) {
+		key = k;
+	}
+	
+	public void setAlpha(double alph) {
+		alpha = alph;
+	}
+	
 	public Point(double newX, double newY) {
 		x = newX;
 		y = newY;
 		tangence = y/x;
+	}
+	
+	public Point(double newX, double newY, int k) {
+		x = newX;
+		y = newY;
+		tangence = y/x;
+		key = k;
 	}
 	
 	public double getTan() {
@@ -39,8 +61,12 @@ public class Point implements Comparable<Point>{
 	public Point() {
 	}
 	
+	public Point clone() {
+		Point p = new Point(this.getX(), this.getY(), this.getKey());
+		return p;
+	}
 	public void print() {
-		System.out.println(x + " υσι " + y);
+		System.out.println(x + " υσι " + y + " δβΰ υσÿ " + key);
 	}
 
 	public void inc(Point p) {
